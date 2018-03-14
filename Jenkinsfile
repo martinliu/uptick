@@ -6,39 +6,20 @@ pipeline {
     }
 
     stages{
-        stage('Build'){
+        stage('Init'){
             steps {
-                echo 'Building'
-            }
-            post{
-                success {
-                    echo 'Upload image'
-                    
-                }
+                echo 'Testing...'
             }
         }
-        stage('Deploy to QA'){
+        stage('Build'){
             steps {
-                echo 'Docker deploy staging’
+                echo 'Building...'
             }
         }
         
-        stage('Deploy to Staging'){
+        stage('Deploy'){
             steps {
-                timeout(time:5, unit:'DAYS'){
-                    input message: 'Approve Staging Deployment?'
-                }
-
-                 echo ‘Docker deploy staging’
-            }
-            post{
-                success{
-                    echo 'Code deployed to Staging.'
-                }
-
-                failure {
-                    echo 'Depmoyment failed.'
-                }
+                echo 'Code Deployed....'
             }
         }
         
