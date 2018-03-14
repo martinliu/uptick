@@ -9,7 +9,9 @@ pipeline {
         stage('Init'){
             steps {
                 echo 'Testing...'
-                sh 'docker build -t martinliu/uptick-node:t1 .'
+                sh '
+                ls
+                docker build -t martinliu/uptick-node:t1 .'
             }
         }
         stage('Build'){
