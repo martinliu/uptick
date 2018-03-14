@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Deploy to QA'){
             steps {
-                echo ‘Docker deploy staging’
+                echo 'Docker deploy staging’
             }
         }
         
