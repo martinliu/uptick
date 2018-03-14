@@ -1,9 +1,8 @@
-FROM node
-EXPOSE 8888
+FROM node:latest
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-ADD appp-code . 
+COPY package.json /usr/src/app/
 RUN npm install
-RUN npm build
-CMD [ "npm", "start" ]
-
-
+COPY . /usr/src/app
+EXPOSE 3000
+CMD [ “npm”, “start” ]
